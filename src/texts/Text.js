@@ -7,5 +7,11 @@ export default class extends Phaser.GameObjects.Text {
         config.scene.add.existing(this);
         this.setFontSize('32px');
         this.setFill('#FFF');
+        this.score = 0;
+    }
+
+    incrementScore() {
+        this.score += 1;
+        this.setText(this.score);
     }
 }

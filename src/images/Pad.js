@@ -11,6 +11,18 @@ export default class extends Phaser.Physics.Arcade.Image {
         this.body.setMaxVelocity(PAD_BASE_VELOCITY);
     }
 
+    bottomMoving() {
+        this.body.setVelocityY(-PAD_BASE_VELOCITY);
+    }
+
+    topMoving() {
+        this.body.setVelocityY(PAD_BASE_VELOCITY);
+    }
+
+    stopMoving() {
+        this.body.setVelocityY(0);
+    }
+
     reinitializePosition() {
         this.setY(200);
     }
