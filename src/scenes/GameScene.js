@@ -2,6 +2,10 @@ import 'phaser';
 import Ball from '../images/Ball';
 import Pad from '../images/Pad';
 import Text from '../texts/Text';
+import PadImg from '../assets/pad.png';
+import BallImg from '../assets/ball.png';
+import Hit1 from '../assets/hit1.wav';
+import Hit2 from '../assets/hit2.wav';
 
 export default class GameScene extends Phaser.Scene {
     constructor() {
@@ -20,10 +24,10 @@ export default class GameScene extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image('pad', 'assets/pad.png');
-        this.load.image('ball', 'assets/ball.png');
-        this.load.audio('hit1', ['assets/hit1.wav']);
-        this.load.audio('hit2', ['assets/hit2.wav'])
+        this.load.image('pad', PadImg);
+        this.load.image('ball', BallImg);
+        this.load.audio('hit1', Hit1);
+        this.load.audio('hit2', Hit2);
     }
 
     create() {

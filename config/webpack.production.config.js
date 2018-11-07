@@ -29,7 +29,7 @@ module.exports = (env, options) => {
       path: env.ghpages ? ghpages : dist,
       filename: '[name].bundle.js',
       chunkFilename: '[name].bundle.js',
-      publicPath: env.ghpages ? '/create-phaser-app/' : '/'
+      publicPath: env.ghpages ? '/mentab-pong/' : '/'
     },
     optimization: {
       splitChunks: {
