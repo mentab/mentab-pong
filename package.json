@@ -2,13 +2,10 @@
   "name": "mentab-pong",
   "scripts": {
     "build": "webpack",
-    "start": "npm run build && webpack-dev-server --port=8000",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "start": "npm run build && webpack-dev-server --port=8000"
   },
   "homepage": "https://mentab.github.io/mentab-pong",
   "devDependencies": {
-    "gh-pages": "^2.0.1",
     "raw-loader": "^0.5.1",
     "webpack": "^3.4.1",
     "webpack-dev-server": "^2.11.0"
