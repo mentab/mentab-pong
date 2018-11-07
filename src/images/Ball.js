@@ -1,6 +1,5 @@
 import Phaser from 'phaser';
-import { PAD_INCREMENT_VELOCITY } from './../constants/constants';
-import { BALL_BASE_VELOCITY } from './../constants/constants';
+import { BALL_BASE_VELOCITY, PAD_INCREMENT_VELOCITY } from './../constants/constants';
 
 export default class extends Phaser.Physics.Arcade.Image {
     constructor(config) {
@@ -10,9 +9,9 @@ export default class extends Phaser.Physics.Arcade.Image {
         this.body.setCollideWorldBounds(true);
         this.body.setBounce(1);
         this.launched = false;
-        // this know about scene
+        // know about scene
         this.scene = config.scene;
-        // func this bindings
+        // bindings
         this.hitPadCallback = this.hitPadCallback.bind(this);
     }
 
@@ -49,6 +48,7 @@ export default class extends Phaser.Physics.Arcade.Image {
         this.body.setVelocityY(parseInt(impactPoint) * arbitraryMultiplicator);
     }
 
+    // TODO increment not linear
     addVelocityX() {
         const xVelocity = this.body.velocity.x;
         const increment = xVelocity > 0 ? PAD_INCREMENT_VELOCITY : -PAD_INCREMENT_VELOCITY;
