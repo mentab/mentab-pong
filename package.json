@@ -1,8 +1,8 @@
 {
-    "name": "create-phaser-app",
-    "version": "0.0.15",
-    "description": "A boiler plate to start your phaser app with webpack4, babel7+ and Phaser 3",
-    "author": "Jesse Harlin",
+    "name": "mentab-pong",
+    "version": "0.0.1",
+    "description": "a mentab pong",
+    "author": "Mentab",
     "scripts": {
         "start": "webpack-dev-server --mode development --env.development",
         "build": "webpack --mode production --env.production",
@@ -20,13 +20,7 @@
     "keywords": [
         "Phaser",
         "Phaser 3",
-        "webpack",
-        "webpack 4",
-        "game development",
-        "boilerplate",
-        "scaffold",
-        "prettier",
-        "game jam"
+        "pong"
     ],
     "license": "MIT",
     "dependencies": {
