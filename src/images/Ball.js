@@ -3,12 +3,13 @@ import { BALL_BASE_VELOCITY, PAD_INCREMENT_VELOCITY } from './../constants/const
 
 export default class extends Phaser.Physics.Arcade.Image {
     constructor(config) {
-        super(config.scene, config.x = 300, config.y = 200, config.key = 'ball');
+        super(config.scene, config.x = 300, config.y = 200, config.key = 'square');
         config.scene.physics.world.enable(this);
         config.scene.add.existing(this);
         this.body.setCollideWorldBounds(true);
         this.body.setBounce(1);
         this.launched = false;
+        this.setTint('0xff9955');
         // know about scene
         this.scene = config.scene;
         // bindings
@@ -34,7 +35,7 @@ export default class extends Phaser.Physics.Arcade.Image {
         }
     }
 
-    // PAD, BALL
+    // params : pad (or wall), ball
     hitPadCallback(body1, body2) {
         this.changeVelocityY(body1, body2);
         this.addVelocityX();

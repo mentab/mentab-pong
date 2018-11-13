@@ -1,5 +1,8 @@
 import 'phaser';
+import MenuScene from './scenes/MenuScene';
+import BootScene from './scenes/BootScene';
 import GameScene from './scenes/GameScene';
+import ShowControlsScene from './scenes/ShowControlsScene';
 
 // config
 // TODO check physics type
@@ -15,7 +18,10 @@ const config = {
         }
     },
     scene: [
-        GameScene
+        BootScene,
+        MenuScene,
+        GameScene,
+        ShowControlsScene
     ]
 };
 
