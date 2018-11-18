@@ -3,6 +3,7 @@ import MenuScene from './scenes/MenuScene';
 import BootScene from './scenes/BootScene';
 import GameScene from './scenes/GameScene';
 import ShowControlsScene from './scenes/ShowControlsScene';
+import ScoreScene from './scenes/ScoreScene';
 
 // config
 // TODO check physics type
@@ -21,7 +22,8 @@ const config = {
         BootScene,
         MenuScene,
         GameScene,
-        ShowControlsScene
+        ShowControlsScene,
+        ScoreScene
     ]
 };
 

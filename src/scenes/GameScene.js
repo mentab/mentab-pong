@@ -52,7 +52,7 @@ export default class GameScene extends Phaser.Scene {
         this.scoreText1 = new ScoreText({ scene: this, x: 250 });
 
         // create ball
-        this.ball = new Ball({ scene: this, x: 200, y: 300 });
+        this.ball = new Ball({ scene: this, x: 300, y: 200 });
 
         // add pad or wall depending on player2 type
         switch (this.player2Config.type) {
@@ -106,6 +106,10 @@ export default class GameScene extends Phaser.Scene {
             }
         }
 
+        if (cursors.shift.isDown) {
+            this.scene.start('MenuScene');
+        }
+
         if (this.player2Config.isAI) {
             this.handleAi();
         }
@@ -128,6 +132,9 @@ export default class GameScene extends Phaser.Scene {
                 this.scoreText2.incrementScore();
                 this.lastScored = 2;
             }
+            if (this.scoreText1.score === 5 || this.scoreText2.score === 5) {
+                this.scene.start('ScoreScene', { P1Score: this.scoreText1.score, P2Score: this.scoreText2.score });
+            }
         }
 
         // reinitialise position after scoring
@@ -135,6 +142,9 @@ export default class GameScene extends Phaser.Scene {
             this.ball.reinitializePosition();
             this.pad1.reinitializePosition();
             this.pad2.reinitializePosition();
+            if (this.player2Config.type === WALL_TYPE) {
+                this.scene.start('ScoreScene', { P1Score: this.scoreText1.score });
+            }
         }
     }
 

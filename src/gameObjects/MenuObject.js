@@ -25,7 +25,8 @@ export default class extends Phaser.GameObjects.GameObject {
     setActive() {
         this.isActive = true;
         this.scene.sound.play('hit2');
-        this.menuDot = new Ball({ scene: this.config.scene, x: 20, y: this.config.y + 10 });
+        this.menuDot = new Ball({ scene: this.config.scene, x: 20, y: this.config.y + 15 });
+        this.menuText.setTint('0xff9955');
     }
 
     setInactive() {
@@ -33,6 +34,7 @@ export default class extends Phaser.GameObjects.GameObject {
         if (this.menuDot) {
             this.menuDot.destroy();
         }
+        this.menuText.setTint('0xffffff');
     }
 
     startNewScene() {
