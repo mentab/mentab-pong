@@ -52,7 +52,7 @@ export default class GameScene extends Phaser.Scene {
         this.scoreText1 = new ScoreText({ scene: this, x: 250 });
 
         // create ball
-        this.ball = new Ball({ scene: this });
+        this.ball = new Ball({ scene: this, x: 200, y: 300 });
 
         // add pad or wall depending on player2 type
         switch (this.player2Config.type) {
@@ -69,7 +69,7 @@ export default class GameScene extends Phaser.Scene {
         // add colliders
         // TODO create custom collider classes
         this.physics.add.collider(this.pad1, this.ball, this.ball.hitPadCallback);
-        
+
         if (this.player2Config.type === PAD_TYPE) {
             this.physics.add.collider(this.pad2, this.ball, this.ball.hitPadCallback);
         }
@@ -97,9 +97,9 @@ export default class GameScene extends Phaser.Scene {
         if (this.player2Config.controls) {
             // p2 cursors
             // TODO change cursors
-            if (cursors.left.isDown) {
+            if (cursors.right.isDown) {
                 this.pad2.bottomMoving();
-            } else if (cursors.right.isDown) {
+            } else if (cursors.left.isDown) {
                 this.pad2.topMoving();
             } else {
                 this.pad2.stopMoving();
@@ -129,7 +129,7 @@ export default class GameScene extends Phaser.Scene {
                 this.lastScored = 2;
             }
         }
-        
+
         // reinitialise position after scoring
         if (this.ball.isBlockedRight() || this.ball.isBlockedLeft()) {
             this.ball.reinitializePosition();

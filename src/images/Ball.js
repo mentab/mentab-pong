@@ -3,7 +3,7 @@ import { BALL_BASE_VELOCITY, PAD_INCREMENT_VELOCITY } from './../constants/const
 
 export default class extends Phaser.Physics.Arcade.Image {
     constructor(config) {
-        super(config.scene, config.x = 300, config.y = 200, config.key = 'square');
+        super(config.scene, config.x, config.y, config.key = 'square');
         config.scene.physics.world.enable(this);
         config.scene.add.existing(this);
         this.body.setCollideWorldBounds(true);

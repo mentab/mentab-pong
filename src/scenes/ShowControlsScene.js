@@ -1,8 +1,5 @@
 import 'phaser';
-import Ball from '../images/Ball';
-import Pad from '../images/Pad';
-import ScoreText from '../texts/ScoreText';
-import MenuText from '../texts/MenuText';
+import MenuObject from '../gameObjects/MenuObject';
 
 export default class ShowControlsScene extends Phaser.Scene {
     constructor() {
@@ -12,13 +9,37 @@ export default class ShowControlsScene extends Phaser.Scene {
     }
 
     create() {
-        this.backToMenu = new MenuText({ scene: this, y: 100, text: 'Back to menu' });
-        this.add.text(20, 200, 'P1: up/down - P2: left/right - Launch ball: space');
+        // create menus
+        this.menus = [
+            new MenuObject(
+                {
+                    scene: this,
+                    type: 'menu',
+                    y: 100,
+                    text: 'Back to menu',
+                    nextScene: 'MenuScene',
+                    type: null
+                }
+            )
+        ];
+
+        this.menus[0].setActive();
+
+        this.isToggable = true;
+
+        this.add.text(20, 200, 'P1: up/down - P2: right/left - Launch ball: space');
+        this.add.text(20, 300, 'Menus: up/down - Choose menu: space');
     }
 
     update() {
-        this.backToMenu.on('pointerdown', () => {
-            this.scene.start('MenuScene');
-        });
+        // create cursors
+        const cursors = this.input.keyboard.createCursorKeys();
+
+        if (cursors.space.isDown) {
+            if (this.isToggable) {
+                this.menus.find(menu => menu.isActive).startNewScene();
+            }
+            this.isToggable = false;
+        }
     }
 }
