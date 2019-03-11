@@ -6,3 +6,4 @@ export const GAME_TYPE_2P = '2P';
 export const GAME_TYPE_1PW = '1PW';
 export const PAD_TYPE = 'pad';
 export const WALL_TYPE = 'wall';
+//
